@@ -12,26 +12,17 @@ namespace Assa_calculator
             {
 
 
-
-
-
-
-
-
                 Double firstNum;
                 Double secondNum;
                 string operation;
                 Double answer;
 
 
-                Console.WriteLine("Hello , your are welcome to basic calculator!");
-
-                Console.WriteLine(" operation like  x, / , +, -");
+                Console.WriteLine("Your are welcome to calculate  x, / , +, -!");
 
                 Console.Write("Please enter first number:");
 
                 firstNum = Convert.ToInt32(Console.ReadLine());
-
 
                 Console.WriteLine(" Enter your operation (x , / , + , - ) ");
                 operation = Console.ReadLine();
@@ -42,18 +33,7 @@ namespace Assa_calculator
 
 
 
-                //Console.WriteLine(" Pres any key to continue");
-                // Console.ReadKey();
-                // Console.WriteLine("Thanks");
-                // Console.Clear();
-
-                //Console.WriteLine("Pess any key to continue. ");
-                // Console.ReadKey(true);
-
-                // Console.Clear();
-
-
-                if (operation == "x")
+                if (operation == "*")
 
                 {
                    answer = firstNum * secondNum;
@@ -87,28 +67,13 @@ namespace Assa_calculator
                     Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
 
 
-                    {
-
-                        
-                        Console.WriteLine(" Pres any key to continue");
-                        Console.ReadKey();
-                        // Console.WriteLine("Thanks");
-                        Console.Clear();
-
-                    }
 
                 }
-               
-               
-                
-                
 
+                Console.WriteLine(" Pres any key to continue");
+                Console.ReadKey(true);
 
-
-
-
-
-
+                Console.Clear();
 
 
 
