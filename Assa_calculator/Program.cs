@@ -12,84 +12,120 @@ namespace Assa_calculator
             {
 
 
-                Double firstNum;
-                Double secondNum;
-                string operation;
-                Double answer;
 
 
-                Console.WriteLine("Your are welcome to calculate  x, / , +, -!");
-
-                Console.Write("Please enter first number:");
-
-                firstNum = Convert.ToInt32(Console.ReadLine());
-
-                Console.WriteLine(" Enter your operation (x , / , + , - ) ");
-                operation = Console.ReadLine();
-
-                Console.Write("Plaese enter second number : ");
-
-               secondNum = Convert.ToInt32(Console.ReadLine());
-
-
-
-                if (operation == "*")
-
+                try
                 {
-                   answer = firstNum * secondNum;
 
-                    Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
-                   // Console.ReadLine();
+
+                    Console.Write(" Enter number  (or 9 to exit)\nSecect: ");
+                    int selectionNumber = int.Parse(Console.ReadLine() ?? "");
+
+                    if (selectionNumber == 9)
+                    {
+                        keepAlive = false;
+                        continue;
+                    }
+
+                    double firstNum;
+                    Double secondNum;
+                    string operation;
+                    Double answer;
+
+                    Console.WriteLine("Your are welcome to calculate  x, / , +, -!");
+
+                    firstNum = AskUserForNumber();
+
+                    Console.WriteLine(" Enter your operation (x , / , + , - ) ");
+                    operation = Console.ReadLine();
+
+                    secondNum = AskUserForNumber();
+
+                    if (operation == "*")
+                    {
+                        answer = Multi(firstNum, secondNum);
+
+                        Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
+
+                    }
+
+                    else if (operation == "/")
+                    {
+                        if (secondNum == 0)
+                        {
+                             Console.WriteLine(" can not divide by zero ");
+
+                        }
+                        else
+                        {
+                            answer = Divide(firstNum, secondNum);
+
+                            Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
+                        }
+
+                    }
+                    else if (operation == "+")
+                    {
+                        answer = Add(firstNum, secondNum);
+
+                        Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
+
+                    }
+                    else if (operation == "-")
+                    {
+                        answer = Subtract(firstNum, secondNum);
+                        Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not a valid option.");
+                    }
+                    Console.WriteLine(" Pres any key to continue");
+                    Console.ReadKey(true);
+                    
+                    Console.Clear();
+
                 }
-
-                else if (operation == "/")
-
+                catch (OverflowException)
                 {
-                    answer = firstNum / secondNum;
 
-                    Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
-
+                    Console.WriteLine(" A exeception occurred \n  you are try to divide by zero or enetr new number to coninue ?");
                 }
-
-                else if (operation == "+")
-
-
+                catch (FormatException)
                 {
-                    answer = firstNum + secondNum;
-
-                    Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
-
+                    Console.WriteLine(" not a number");
                 }
-                else if (operation == "-")
-
-                {
-                    answer = firstNum - secondNum;
-                    Console.WriteLine($" {firstNum} {operation} {secondNum}  =  {answer} ");
-
-
-
-                }
-
-                Console.WriteLine(" Pres any key to continue");
-                Console.ReadKey(true);
-
-                Console.Clear();
-
-
 
             }
+        }// end of main
+
+        private static double Multi(double firstNum, double secondNum)
+
+        {
+            return firstNum * secondNum;
+           // return firstNum / secondNum;
         }
-            
 
+        private static double Divide(double firstNum, double secondNum)
+        {
+            return firstNum / secondNum;
+     
+        }
+        private static double Add(double firstNum, double secondNum)
+        {
+            return firstNum + secondNum;
+        }
+        private static double Subtract(double firstNum, double secondNum)
+        {
+            return firstNum - secondNum;
+        }
+        static double AskUserForNumber()
+        {
+            Console.Write("Please enter number:");
+            return Convert.ToDouble(Console.ReadLine());
 
+        }
 
-
-
-    }
-
-
-
-
-
-
-}
+    }//class program
+}//namespace
