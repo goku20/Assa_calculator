@@ -13,7 +13,6 @@ namespace Assa_calculator
 
 
 
-
                 try
                 {
 
@@ -36,7 +35,7 @@ namespace Assa_calculator
 
                     firstNum = AskUserForNumber();
 
-                    Console.WriteLine(" Enter your operation (x , / , + , - ) ");
+                    Console.WriteLine("Enter your operation (x , / , + , - ) ");
                     operation = Console.ReadLine();
 
                     secondNum = AskUserForNumber();
@@ -53,7 +52,7 @@ namespace Assa_calculator
                     {
                         if (secondNum == 0)
                         {
-                             Console.WriteLine(" can not divide by zero ");
+                             Console.WriteLine("can not divide by zero ");
 
                         }
                         else
@@ -81,7 +80,7 @@ namespace Assa_calculator
                     {
                         Console.WriteLine("Not a valid option.");
                     }
-                    Console.WriteLine(" Pres any key to continue");
+                    Console.WriteLine("Pres any key to continue");
                     Console.ReadKey(true);
                     
                     Console.Clear();
@@ -90,11 +89,11 @@ namespace Assa_calculator
                 catch (OverflowException)
                 {
 
-                    Console.WriteLine(" A exeception occurred \n  you are try to divide by zero or enetr new number to coninue ?");
+                    Console.WriteLine("operation resulted in an overflow \n enetr a valid number to coninue ?");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine(" not a number");
+                    Console.WriteLine("it´s a not a numner !");
                 }
 
             }
@@ -104,7 +103,7 @@ namespace Assa_calculator
 
         {
             return firstNum * secondNum;
-           // return firstNum / secondNum;
+           
         }
 
         private static double Divide(double firstNum, double secondNum)
